@@ -1,4 +1,5 @@
 /*global $ */
+
 //Fetch village data
 function fetchVillageData(latitude, longitude) {
 	// Village api call
@@ -13,10 +14,12 @@ function fetchVillageData(latitude, longitude) {
 	console.log("url", url);
 
 	$.get(url, function (data) {
-		$("#offers").html(data);
-
+//		$("#offers").html(data);
+		
+		// Functions to display offers and data 
 		console.log("data", data);
-
+		displayOffers(data["offers"]);
+		displayPeople(data["people"]);
 	});
 }
 
@@ -37,3 +40,31 @@ function processGeolocation(position) {
 }
 
 getLocation();
+
+// Display Offers 
+function displayOffers(offers) {
+	var outputArea = $("#offers"),
+		currentOffer,
+		i, iLen;
+
+	for (i = 0, iLen = offers.length; i < iLen; i++) {
+		console.log("offer", offers[i]);
+		currentOffer = $("<div>").text(offers[i]["details"]);
+		outputArea.append(currentOffer);
+	}
+}
+
+//Display people
+function displayPeople(people) {
+	console.log("people", people);
+	var outputArea = $("#people"),
+		peopleListed,
+		i, iLen;
+	
+	for (i = 0, iLen = people.length; i < iLen; i++) {
+		console.log("person" + i, people[i]);
+		peopleListed = $("<div>").text(people[i]["firstName"]);
+		outputArea.append(peopleListed);
+	}
+	
+}
