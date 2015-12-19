@@ -2,9 +2,13 @@
 //Fetch village data
 function fetchVillageData(latitude, longitude) {
 	// Village api call
+	var testLat = 37.7800958,
+		testLong = -122.4605237;
+	
 	var authKey = "ya29.OwK_gZu6kwBy5Q_N5GkTZvVC1aNJinY4mNl9i3P2joKaXt5UqdFbXusCu0wW1CExbzlEX1U",
 		baseUrl = "https://queatz-snappy.appspot.com/api/here?latitude=",
-		url = baseUrl + latitude + "&longitude=" + longitude + "&auth=" + authKey;
+		//url = baseUrl + latitude + "&longitude=" + longitude + "&auth=" + authKey;
+		url = baseUrl + testLat + "&longitude=" + testLong + "&auth=" + authKey;
 
 	console.log("url", url);
 
