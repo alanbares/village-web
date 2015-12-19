@@ -7,3 +7,11 @@ $.get("https://queatz-snappy.appspot.com/api/here?latitude=37.7800958&longitude=
     var _data = data;
 });
 
+//Geo location call
+function getLocation() {
+	navigator.geolocation.getCurrentPosition(doSomething);
+}
+function doSomething(position) {
+	console.log(position.coords.latitude, position.coords.longitude);
+}
+getLocation();
