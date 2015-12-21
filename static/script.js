@@ -2,6 +2,8 @@
 
 //Fetch village data
 function fetchVillageData(latitude, longitude) {
+    console.log("latitude", latitude);
+	console.log("longitude", longitude);
 	// Village api call
 	var testLat = 37.7800958,
 		testLong = -122.4605237;
@@ -25,21 +27,10 @@ function fetchVillageData(latitude, longitude) {
 
 //Geo location call
 function getLocation() {
-	navigator.geolocation.getCurrentPosition(processGeolocation);
+    navigator.geolocation.getCurrentPosition(function (position) {
+        fetchVillageData(position.coords.latitude, position.coords.longitude);
+    });
 }
-
-function processGeolocation(position) {
-	console.log("position", position);
-	var latitude = position.coords.latitude,
-		longitude = position.coords.longitude;
-
-	console.log("latitude", latitude);
-	console.log("longitude", longitude);
-
-	fetchVillageData(latitude, longitude)
-}
-
-getLocation();
 
 // Display Offers 
 function displayOffers(offers) {
@@ -58,7 +49,7 @@ function displayOffers(offers) {
 function displayPeople(people) {
 	console.log("people", people);
 	var outputArea = $("#people"),
-		peopleListed,
+		peopleListed, peopleListed2,
 		i, iLen;
 	
 	for (i = 0, iLen = people.length; i < iLen; i++) {
@@ -72,5 +63,11 @@ function displayPeople(people) {
 // Get 3 random offers
 function getRandomOffers(offers, num) {
     var randomOffers = _.shuffle(offers);
+
     return randomOffers.slice(0, num);
 }
+
+$(document).ready(function () {
+    getLocation();
+});
+
