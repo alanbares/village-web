@@ -14,11 +14,11 @@ function fetchVillageData(latitude, longitude) {
 	console.log("url", url);
 
 	$.get(url, function (data) {
-//		$("#offers").html(data);
+		//$("#offers").html(data);
 		
 		// Functions to display offers and data 
 		console.log("data", data);
-		displayOffers(data["offers"]);
+		displayOffers(getRandomOffers(data["offers"], 3));
 		displayPeople(data["people"]);
 	});
 }
@@ -67,4 +67,10 @@ function displayPeople(people) {
 		outputArea.append(peopleListed);
 	}
 	
+}
+
+// Get 3 random offers
+function getRandomOffers(offers, num) {
+    var randomOffers = _.shuffle(offers);
+    return randomOffers.slice(0, num);
 }
