@@ -18,10 +18,9 @@ function fetchVillageData(latitude, longitude) {
 	$.get(url, function (data) {
 		//$("#offers").html(data);
 		
-		// Functions to display offers and data 
+		// Displays data on HTML
 		console.log("data", data);
-		displayOffers(getRandomOffers(data["offers"], 3));
-		displayPeople(data["people"]);
+		displayOffersAndPeople(data["people"], getRandomOffers(data["offers"], 3));
 	});
 }
 
@@ -32,30 +31,22 @@ function getLocation() {
     });
 }
 
-// Display Offers 
-function displayOffers(offers) {
-	var outputArea = $("#offers"),
-		currentOffer,
-		i, iLen;
 
-	for (i = 0, iLen = offers.length; i < iLen; i++) {
-		console.log("offer", offers[i]);
-		currentOffer = $("<div>").text(offers[i]["details"]);
-		outputArea.append(currentOffer);
-	}
-}
-
-//Display people
-function displayPeople(people) {
+//Display offers and people
+function displayOffersAndPeople(people, offers) {
+    console.log(offers);
 	console.log("people", people);
-	var outputArea = $("#people"),
-		peopleListed,
+	var outputArea = $("#offers"),
+        firstName, lastName, currentOffer,
 		i, iLen;
 	
-	for (i = 0, iLen = people.length; i < iLen; i++) {
-		console.log("person" + i, people[i]);
-		peopleListed = $("<div>").text(people[i]["firstName"]);
-		outputArea.append(peopleListed);
+	for (i = 0, iLen = offers.length; i < iLen; i++) {
+		//console.log("person" + i, people[i]);
+        console.log(people[i]["firstName"]);
+        firstName  = people[i]["firstName"];
+        lastName = people[i]["lastName"];
+        currentOffer = offers[i]["details"];
+		outputArea.append("<p>" + firstName + ' ' + lastName + ' ' + currentOffer+ "</p>");
 	}
 	
 }
