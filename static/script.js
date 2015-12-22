@@ -49,7 +49,7 @@ function displayOffers(offers) {
 function displayPeople(people) {
 	console.log("people", people);
 	var outputArea = $("#people"),
-		peopleListed, peopleListed2,
+		peopleListed,
 		i, iLen;
 	
 	for (i = 0, iLen = people.length; i < iLen; i++) {
