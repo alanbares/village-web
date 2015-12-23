@@ -1,10 +1,10 @@
 /*global $ */
 
-//Fetch village data
+//Village api call
 function fetchVillageData(latitude, longitude) {
     console.log("latitude", latitude);
 	console.log("longitude", longitude);
-	// Village api call
+
 	var testLat = 37.7800958,
 		testLong = -122.4605237;
 	
@@ -15,12 +15,10 @@ function fetchVillageData(latitude, longitude) {
 
 	console.log("url", url);
 
+    //Displays data on html
 	$.get(url, function (data) {
-		//$("#offers").html(data);
-		
-		// Displays data on HTML
 		console.log("data", data);
-		displayOffersAndPeople(data["people"], getRandomOffers(data["offers"], 3));
+        displayOfferAndPerson(getRandomOffers(data["offers"], 3));
 	});
 }
 
@@ -32,22 +30,21 @@ function getLocation() {
 }
 
 
-//Display offers and people
-function displayOffersAndPeople(people, offers) {
+// Display details of offer and person
+function displayOfferAndPerson(offers) {
     console.log(offers);
-	console.log("people", people);
-	var outputArea = $("#offers"),
+    var outputArea = $("#offers"),
         firstName, lastName, currentOffer,
-		i, iLen;
-	
-	for (i = 0, iLen = offers.length; i < iLen; i++) {
-		//console.log("person" + i, people[i]);
-        console.log(people[i]["firstName"]);
-        firstName  = people[i]["firstName"];
-        lastName = people[i]["lastName"];
+        i, iLen;
+
+    for (i = 0, iLen = offers.length; i < iLen; i++) {
+        console.log("person-" + i, offers[i]["person"]["firstName"]);
+        firstName  = offers[i]["person"]["firstName"];
+        lastName = offers[i]["person"]["lastName"];
         currentOffer = offers[i]["details"];
-		outputArea.append("<p>" + firstName + ' ' + lastName + ' ' + currentOffer+ "</p>");
-	}
+        outputArea.append("<p>" + firstName + ' ' + lastName + ' ' + currentOffer+ "</p>");
+    }
+
 	
 }
 
