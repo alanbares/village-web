@@ -33,7 +33,7 @@ function getLocation() {
 // Display details of offer and person
 function displayOfferAndPerson(offers) {
     console.log(offers);
-    var outputArea = $("#offers"),
+    var outputArea = $("#offerListing"),
         firstName, lastName, currentOffer,
         i, iLen;
 
