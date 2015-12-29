@@ -42,7 +42,7 @@ function displayOfferAndPerson(offers) {
         firstName  = offers[i]["person"]["firstName"];
         lastName = offers[i]["person"]["lastName"];
         currentOffer = offers[i]["details"];
-        outputArea.append("<p>" + firstName + ' ' + lastName + ' ' + currentOffer+ "</p>");
+        outputArea.append("<p>" + firstName + ' ' + lastName + ' ' + currentOffer + "</p>");
     }
 
 	
