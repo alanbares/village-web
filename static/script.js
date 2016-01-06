@@ -34,7 +34,7 @@ function getLocation() {
 function displayOfferAndPerson(offers) {
     console.log(offers);
     var outputArea = $("#offerListing"),
-        firstName, lastName, currentOffer,
+        firstName, lastName, currentOffer, profilePic,
         i, iLen;
 
     for (i = 0, iLen = offers.length; i < iLen; i++) {
@@ -42,7 +42,8 @@ function displayOfferAndPerson(offers) {
         firstName  = offers[i]["person"]["firstName"];
         lastName = offers[i]["person"]["lastName"];
         currentOffer = offers[i]["details"];
-        outputArea.append("<p>" + firstName + ' ' + lastName + ' ' + currentOffer + "</p>");
+        profilePic = offers[i]["person"]["imageUrl"];
+        outputArea.append( "<img src='"+ profilePic +"' />" + "<p>" + firstName + ' ' + lastName + ' ' + currentOffer + "</p>");
     }
 
 	
