@@ -20,4 +20,10 @@
     transform: translate(-50%,-50%);
 }
 
+.offer-row {
+	border-bottom: 1px solid #ccc;
+}
 
+.offer-row:last-child {
+	border-bottom: none;
+}

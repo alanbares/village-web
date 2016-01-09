@@ -32,10 +32,11 @@ function getLocation() {
 
 // Display details of offer and person
 function displayOfferAndPerson(offers) {
-    console.log(offers);
+    console.log('offers', offers);
     var outputArea = $("#offerListing"),
         firstName, lastName, currentOffer, imageUrl,
         i, iLen;
+
 
     for (i = 0, iLen = offers.length; i < iLen; i++) {
         console.log("person-" + i, offers[i]["person"]["firstName"]);
@@ -43,8 +44,9 @@ function displayOfferAndPerson(offers) {
         lastName = offers[i]["person"]["lastName"];
         currentOffer = offers[i]["details"];
         imageUrl = offers[i]["person"]["imageUrl"];
-        outputArea.append("<img class='profile-pic'  src='" + imageUrl + "' />" + "<p class='names'>" + firstName + ' ' + lastName + ' ' + "</p>" + "<p>" + currentOffer + "</p>");
+        //outputArea.append("<img class='profile-pic'  src='" + imageUrl + "' />" + "<p class='names'>" + firstName + ' ' + lastName + ' ' + "</p>" + "<p>" + currentOffer + "</p>");
     }
+	renderTemplate('#offerTemplate', '#offerArea', offers);
 
 	
 }
@@ -61,10 +63,9 @@ $(document).ready(function () {
 });
 
 // Handlebars
-function renderTemplate(templateId, targetId, context) {
+var renderTemplate = function (templateId, targetId, context) {
     var source = $(templateId).html();
     var template = Handlebars.compile(source);
     var html = template(context);
     $(targetId).append(html);
 }
-

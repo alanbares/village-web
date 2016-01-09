@@ -7,24 +7,42 @@
         <link rel="stylesheet" href="static/style.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.amd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
         <script src="static/script.js"></script>
     </head>
     
     <body>
      
-      <div class="container offer-width">
+        <div class="container offer-width">
       	<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-primary ">
-						<section id="offers" class="text-center panel-heading">
-							<h2>Offers near you</h2>
-						</section>
-						<section id= "offerListing" class="panel-body text-center"></section>
-					</div>
-				</div>
+			<div class="col-md-12">
+				<div id="offerArea"></div>
+			</div>
       	</div>
 	</div>
+		<script id="offerTemplate" type="text/x-handlebars-template">
+			<div class="panel panel-primary ">
+					<section id="offers" class="text-center panel-heading">
+						<h2>Offers near you</h2>
+					</section>
+					<section id= "offerArea" class="panel-body text-center">
+						{{#each this}}
+						<div class="row offer-row">
+							<div class="col-md-4">
+								<div class="person-pic">
+									<img src="{{person.imageUrl}}" alt="Picture Of {{person.firstName}}">
+								</div>
+								{{person.firstName}} {{person.lastName}}
+							</div>
+							<div class="col-md-8">
+								{{details}}
+							</div>
+						</div>
+
+						{{/each}}
+					</section>
+			</div>
+		</script>
 
     </body>
 </html>
