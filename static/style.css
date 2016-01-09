@@ -9,6 +9,7 @@
 
 /* #Offers
 ================================ */
+
 .offer-width {
     width: 585px;
     margin: 0 auto;
@@ -18,4 +19,5 @@
     margin-right: -50%;
     transform: translate(-50%,-50%);
 }
+
 
