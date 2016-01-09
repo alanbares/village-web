@@ -18,7 +18,8 @@ function fetchVillageData(latitude, longitude) {
     //Displays data on html
 	$.get(url, function (data) {
 		console.log("data", data);
-        displayOfferAndPerson(getRandomOffers(data["offers"], 3));
+       	var offers = getRandomOffers(data["offers"], 3);
+		renderTemplate('#offerTemplate', '#offerArea', offers);
 	});
 }
 
@@ -29,27 +30,6 @@ function getLocation() {
     });
 }
 
-
-// Display details of offer and person
-function displayOfferAndPerson(offers) {
-    console.log('offers', offers);
-    var outputArea = $("#offerListing"),
-        firstName, lastName, currentOffer, imageUrl,
-        i, iLen;
-
-
-    for (i = 0, iLen = offers.length; i < iLen; i++) {
-        console.log("person-" + i, offers[i]["person"]["firstName"]);
-        firstName  = offers[i]["person"]["firstName"];
-        lastName = offers[i]["person"]["lastName"];
-        currentOffer = offers[i]["details"];
-        imageUrl = offers[i]["person"]["imageUrl"];
-        //outputArea.append("<img class='profile-pic'  src='" + imageUrl + "' />" + "<p class='names'>" + firstName + ' ' + lastName + ' ' + "</p>" + "<p>" + currentOffer + "</p>");
-    }
-	renderTemplate('#offerTemplate', '#offerArea', offers);
-
-	
-}
 
 // Get 3 random offers
 function getRandomOffers(offers, num) {

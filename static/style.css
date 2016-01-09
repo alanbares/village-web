@@ -3,11 +3,14 @@
 * Organized from top to bottom
 * Name of section / Search term
 
-1. Offers styling / #Offers
+1. Offers panel / #Panel
+2. Profile Picture / #Profile
+3. First and last name / #Names
+4. Offer Details / #Offers
 ------------------------------------------------------------------**/
 
 
-/* #Offers
+/* #Panel
 ================================ */
 
 .offer-width {
@@ -26,4 +29,27 @@
 
 .offer-row:last-child {
 	border-bottom: none;
+}
+
+.vertical-line {
+	border-right: thick solid #ccc;
+}
+
+
+
+/* #Profile
+================================ */
+
+.profile-pic {
+	padding-bottom: 1%;
+	padding-top: 3%;
+}
+
+/* #Names
+================================ */
+
+/* #Offers
+================================ */
+.offer-details {
+	padding-top: 3%;
 }

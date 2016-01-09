@@ -29,16 +29,17 @@
 						{{#each this}}
 						<div class="row offer-row">
 							<div class="col-md-4">
-								<div class="person-pic">
+								<div class="vertical-line">
+								<div class="profile-pic">
 									<img src="{{person.imageUrl}}" alt="Picture Of {{person.firstName}}">
 								</div>
 								{{person.firstName}} {{person.lastName}}
 							</div>
-							<div class="col-md-8">
+							</div>
+							<div class="col-md-8 offer-details">
 								{{details}}
 							</div>
 						</div>
-
 						{{/each}}
 					</section>
 			</div>
