@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Village</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.css">
         <link rel="stylesheet" href="static/style.css">
@@ -13,13 +14,15 @@
     
     <body>
      
-        <div class="container offer-width">
-      	<div class="row">
-			<div class="col-md-12">
-				<div id="offerArea"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 panel-container">
+					<div id="offerArea"></div>
+				</div>
 			</div>
-      	</div>
-	</div>
+		</div>
+
+		<!-- Offers Panel  -->
 		<script id="offerTemplate" type="text/x-handlebars-template">
 			<div class="panel panel-primary ">
 					<section id="offers" class="text-center panel-heading">
@@ -33,7 +36,9 @@
 								<div class="profile-pic">
 									<img src="{{person.imageUrl}}" alt="Picture Of {{person.firstName}}">
 								</div>
+								<div class="names">
 								{{person.firstName}} {{person.lastName}}
+								</div>
 							</div>
 							</div>
 							<div class="col-md-8 offer-details">

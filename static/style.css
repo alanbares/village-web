@@ -7,22 +7,16 @@
 2. Profile Picture / #Profile
 3. First and last name / #Names
 4. Offer Details / #Offers
+5. Media Queries / #Media
 ------------------------------------------------------------------**/
 
 
 /* #Panel
 ================================ */
 
-.offer-width {
-    width: 585px;
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%,-50%);
+.panel-container {
+	margin-top: 15%;
 }
-
 .offer-row {
 	border-bottom: 1px solid #ccc;
 }
@@ -41,15 +35,27 @@
 ================================ */
 
 .profile-pic {
-	padding-bottom: 1%;
 	padding-top: 3%;
 }
 
 /* #Names
 ================================ */
+.names {
+	padding-top: 2%;
+}
 
 /* #Offers
 ================================ */
 .offer-details {
-	padding-top: 3%;
+	padding-top: 5%;
+}
+
+/* #Media
+================================ */
+
+/* Mobile devices (phones) */
+@media (min-width: 320px) and (max-width: 500px) {
+	.panel-container {
+		margin-top: 5%;
+	}
 }
